@@ -1,1 +1,33 @@
 <h1>All paths</h1>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Origin</th>
+            <th>Destination</th>
+            <th>O&D redirect to same article?</th>
+            <th>Intermediate articles</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @paths.each do |path| %>
+            <tr>
+                <td>
+                <%= path.id %>
+                </td>
+                <td>
+                <%= path.origin %>
+                </td>
+                <td>
+                <%= path.destination %>
+                </td>
+                <td>
+                <%= (path.links_to_same_article) ? "Yes": "No" %>
+                </td>
+                <td>
+                <%= (path.intermediate.length > 0) ? (path.intermediate) : "None" %>
+                </td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
