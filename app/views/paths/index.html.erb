@@ -6,7 +6,7 @@
             <th>Origin</th>
             <th>Destination</th>
             <th>O&D redirect to same article?</th>
-            <th>Intermediate articles</th>
+            <th>Number of Intermediate articles</th>
         </tr>
     </thead>
     <tbody>
@@ -25,7 +25,7 @@
                 <%= (path.links_to_same_article) ? "Yes": "No" %>
                 </td>
                 <td>
-                <%= (path.intermediate.length > 0) ? (path.intermediate) : "None" %>
+                <%= (path.intermediate.length > 0) ? (path.intermediate.length) : "None" %>
                 </td>
             </tr>
         <% end %>
