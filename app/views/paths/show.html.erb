@@ -1,0 +1,6 @@
+<h1>Path linkage:</h1>
+<h2>Origin: <%=@path.origin %></h2>
+<h2>...to Destination: <%= @path.destination %></h2>
+<p>
+    Intermediate articles: <%= (@path.intermediate.length > 0) ? (@path.intermediate) : "None" %>
+</p>

@@ -13,7 +13,7 @@
         <% @paths.each do |path| %>
             <tr>
                 <td>
-                <%= path.id %>
+                <%= link_to path.id, path %>
                 </td>
                 <td>
                 <%= path.origin %>
