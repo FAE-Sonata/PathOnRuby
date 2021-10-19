@@ -1,7 +1,12 @@
-<h1>Path linkage:</h1>
 <%= link_to "Home", root_path %>
-<h2>Origin: <%=@path.origin %></h2>
-<h2>...to Destination: <%= @path.destination %></h2>
-<p>
-    Intermediate articles: <%= (@path.intermediate.length > 0) ? (@path.intermediate) : "None" %>
-</p>
+<h1><%= @path.origin %> -> <%= @path.destination %></h1>
+<% if @path.links_to_same_article %>
+    <p>Origin and destination point to the same article.</p>
+<% end %>
+<% if (!@path.links_to_same_article && @path.intermediate.length == 0) %>
+    <p>This path linkage has no intermediate articles and is a 1st degree connection.</p>
+<% end %>
+<% if (@path.intermediate.length > 0) %>
+    <p>The full path linkage is as follows:</p>
+    <p><%=@path.origin + " --> " + @path.intermediate.join(" --> ") + " --> " + @path.destination%></p>
+<% end %>
