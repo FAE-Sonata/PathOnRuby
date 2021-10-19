@@ -7,6 +7,8 @@ import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
+require("../custom/addFields")
+require("../custom/removeFields")
 
 Rails.start()
 Turbolinks.start()
