@@ -7,7 +7,6 @@
 .env
 /explainers/*.docx
 _intermediate*.html.erb
-*NO PUSH*
 # Ignore bundler config.
 /.bundle
 

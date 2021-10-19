@@ -1,15 +1,13 @@
 <%= form_with model: @path do |form| %>
     <!-- origin input -->
     <div>
-        <%= form.label :origin %><br>
+        <%= form.label :origin %>
         <%= form.text_field :origin %>
         <% @path.errors.full_messages_for(:origin).each do |message| %>
             <div><%= message %></div>
         <% end %>
-    </div>
-    <!-- destination input -->
-    <div>
-        <%= form.label :destination %><br>
+        <!-- destination input -->
+        <%= form.label :destination %>
         <%= form.text_field :destination %>
         <% @path.errors.full_messages_for(:destination).each do |message| %>
             <div><%= message %></div>
@@ -17,6 +15,7 @@
     </div>
     <!-- intermediate input -->
     <div>
+        <%= form.label "Intermediate articles" %><br>
         <% for k in 0..3 do %>
             <%= text_field_tag "path[intermediate][]" %>
         <% end %>

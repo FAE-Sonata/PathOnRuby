@@ -12,7 +12,9 @@ class PathsController < ApplicationController
   end
 
   def create
-    @path = Path.new(path_params)
+    attributes = path_params.clone
+    attributes[:intermediate] = attributes[:intermediate].filter {|s| s.length > 0}
+    @path = Path.new(attributes)
 
     if @path.save
       redirect_to @path
@@ -24,5 +26,6 @@ class PathsController < ApplicationController
   private
     def path_params
       params.require(:path).permit(:origin, :destination, {intermediate: []} , :links_to_same_article)
+      # not params...permit! (which disables Strong Parameters)
     end
 end
