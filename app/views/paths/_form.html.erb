@@ -14,13 +14,25 @@
         <% end %>
         <!-- links_to_same_article input -->
         <%= form.label :links_to_same_article %>
-        <%= form.check_box :links_to_same_article, checked: false %>
+        <%= form.check_box :links_to_same_article %>
     </div>
     <!-- intermediate input -->
     <div>
         <%= form.label "Intermediate articles" %><br>
-        <% for k in 0..3 do %>
-            <%= text_field_tag "path[intermediate][]" %>
+        <%if @path.intermediate.length == 0 %>
+            <% for k in 0..3 do %>
+                <%= text_field_tag "path[intermediate][]" %>
+            <% end %>
+        <% end %>
+        <%if @path.intermediate.length > 0 %>
+            <% for article in @path.intermediate %>
+                <%= text_field_tag "path[intermediate][]", article %>
+            <% end %>
+            <%if @path.intermediate.length < 4 %>
+                <% for k in 0..(3-@path.intermediate.length) do %>
+                    <%= text_field_tag "path[intermediate][]" %>
+                <% end %>
+            <% end %>
         <% end %>
     </div>
 

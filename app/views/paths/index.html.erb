@@ -3,6 +3,7 @@
 <table>
     <thead>
         <tr>
+            <th>[Edit]</th>
             <th>ID</th>
             <th>Origin</th>
             <th>Destination</th>
@@ -14,13 +15,16 @@
         <% @paths.each do |path| %>
             <tr>
                 <td>
+                <%= link_to "Edit", edit_path_path(path) %>
+                </td>
+                <td>
                 <%= link_to path.id, path %>
                 </td>
                 <td>
-                <%= path.origin %>
+                <%= path.origin[0..49] %>
                 </td>
                 <td>
-                <%= path.destination %>
+                <%= path.destination[0..49] %>
                 </td>
                 <td>
                 <%= (path.links_to_same_article) ? "Yes": "No" %>

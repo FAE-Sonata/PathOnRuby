@@ -23,6 +23,23 @@ class PathsController < ApplicationController
     end
   end
 
+  def edit
+    @path = Path.find(params[:id])
+  end
+
+  def update
+    @path = Path.find(params[:id])
+    # temporary repeating: yes it violates DRY, but I don't want to deal with unintended consequences of splitting to a separate function
+    attributes = path_params.clone
+    attributes[:intermediate] = attributes[:intermediate].filter {|s| s.length > 0}
+
+    if @path.update(attributes)
+      redirect_to @path
+    else
+      render :edit
+    end
+  end
+
   private
     def path_params
       params.require(:path).permit(:origin, :destination, {intermediate: []} , :links_to_same_article)
