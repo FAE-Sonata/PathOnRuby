@@ -40,6 +40,13 @@ class PathsController < ApplicationController
     end
   end
 
+  def destroy
+    @path = Path.find(params[:id])
+    @path.destroy
+
+    redirect_to root_path
+  end
+
   private
     def path_params
       params.require(:path).permit(:origin, :destination, {intermediate: []} , :links_to_same_article)
