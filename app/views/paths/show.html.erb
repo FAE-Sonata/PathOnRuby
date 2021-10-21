@@ -2,7 +2,7 @@
 <h1><%= @path.origin %> -> <%= @path.destination %></h1>
 <p>
     <%= link_to "Edit", edit_path_path(@path) %>
-    <%= link_to "Destroy", path_path(@path), method: :delete, data: {
+    <%= link_to "Delete", path_path(@path), method: :delete, data: {
         confirm: "Are you sure?" } %>
 </p>
 <% if @path.links_to_same_article %>
