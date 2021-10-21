@@ -13,3 +13,8 @@
  *= require_tree .
  *= require_self
  */
+ /* forcing "button_to" to appear on the same line in show.html.erb */
+.button_to,
+.button_to div {
+  display: inline;
+}
