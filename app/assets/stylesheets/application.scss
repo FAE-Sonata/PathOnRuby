@@ -14,7 +14,22 @@
  *= require_self
  */
  /* forcing "button_to" to appear on the same line in show.html.erb */
-.button_to,
 .button_to div {
   display: inline;
 }
+
+// dangerButton {
+//   class-style: "btn btn-danger";
+// }
+
+// from https://dev.to/songta17/rails-6-with-bootstrap-5-5c08
+// Graphical variables
+@import "config/fonts";
+@import "config/colors";
+@import "config/bootstrap_variables";
+
+// External libraries
+@import "bootstrap/scss/bootstrap";
+
+// CSS partials
+@import "components/index";
