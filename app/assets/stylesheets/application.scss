@@ -18,6 +18,27 @@
   display: inline;
 }
 
+table, th, td {
+  border: 1px solid black;
+  padding: 4px;
+}
+
+/*
+td {
+  border: 1px solid black;
+  padding-bottom: 5px;
+}
+*/
+
+td {
+  /*
+  width: 1.5em;
+  height: 1.5em;
+  background: #d2d2d2;
+  */
+  text-align: left;
+}
+
 // dangerButton {
 //   class-style: "btn btn-danger";
 // }
