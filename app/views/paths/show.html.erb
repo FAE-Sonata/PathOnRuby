@@ -1,9 +1,11 @@
 <%= link_to "Home", root_path %>
 <h1><%= @path.origin %> -> <%= @path.destination %></h1>
 <div>
-    <%= link_to "Edit", edit_path_path(@path) %>
+    <%= button_to "Edit", edit_path_path(@path), method: :get,
+        form: {style: 'display:inline-block;'} %>
     <%= button_to "Delete", path_path(@path), method: :delete, data: {
-        confirm: "Are you sure?"}, form: {style: 'display:inline-block;'} %>
+        confirm: "Are you sure?"}, class: 'btn btn-danger',
+        form: {style: 'display:inline-block;'} %>
 </div>
 <% if @path.links_to_same_article %>
     <p>Origin and destination point to the same article.</p>

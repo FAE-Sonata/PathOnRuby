@@ -1,44 +1,47 @@
 <h1>All paths</h1>
 <%= link_to "New Path", new_path_path %>
-<table>
-    <thead>
-        <tr>
-            <th>[Edit]</th>
-            <th>[DELETE]</th>
-            <th>ID</th>
-            <th>Origin</th>
-            <th>Destination</th>
-            <th>O&D redirect to same article?</th>
-            <th>Number of Intermediate articles</th>
-        </tr>
-    </thead>
-    <tbody>
-        <% @paths.each do |path| %>
+<div class="d-md-flex mb-3">
+    <table>
+        <thead>
             <tr>
-                <td>
-                    <%= link_to "Edit", edit_path_path(path) %>
-                </td>
-                <td>
-                    <%= button_to "Delete", path_path(path), method: :delete, data: {
-                        confirm: "Are you sure?" } %>
-                </td>
-                <td>
-                    <%= link_to path.id, path %>
-                </td>
-                <td>
-                    <%= path.origin[0..49] %>
-                </td>
-                <td>
-                    <%= path.destination[0..49] %>
-                </td>
-                <td>
-                    <%= (path.links_to_same_article) ? "Yes": "No" %>
-                </td>
-                <td>
-                    <%= (path.intermediate.length > 0) ? (
-                        path.intermediate.length) : "None" %>
-                </td>
+                <th>[Edit]</th>
+                <th>[DELETE]</th>
+                <th>ID</th>
+                <th>Origin</th>
+                <th>Destination</th>
+                <th>O&D redirect to same article?</th>
+                <th>Number of Intermediate articles</th>
             </tr>
-        <% end %>
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            <% @paths.each do |path| %>
+                <tr>
+                    <td>
+                        <%= button_to "Edit", edit_path_path(path), method: :get %>
+                    </td>
+                    <td>
+                        <%= button_to "Delete", path_path(path), method: :delete,
+                            class: 'btn btn-danger',
+                            data: { confirm: "Are you sure?" } %>
+                    </td>
+                    <td>
+                        <%= link_to path.id, path %>
+                    </td>
+                    <td>
+                        <%= path.origin[0..49] %>
+                    </td>
+                    <td>
+                        <%= path.destination[0..49] %>
+                    </td>
+                    <td>
+                        <%= (path.links_to_same_article) ? "Yes": "No" %>
+                    </td>
+                    <td>
+                        <%= (path.intermediate.length > 0) ? (
+                            path.intermediate.length) : "None" %>
+                    </td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>
