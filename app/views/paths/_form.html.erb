@@ -1,17 +1,12 @@
 <%= form_with model: @path do |form| %>
-    <!-- origin input -->
+    <%= render "shared/validation-messages", object: @path %>
+    <!-- O & D input -->
     <div>
         <%= form.label :origin %>
         <%= form.text_field :origin %>
-        <% @path.errors.full_messages_for(:origin).each do |message| %>
-            <div><%= message %></div>
-        <% end %>
         <!-- destination input -->
         <%= form.label :destination %>
         <%= form.text_field :destination %>
-        <% @path.errors.full_messages_for(:destination).each do |message| %>
-            <div><%= message %></div>
-        <% end %>
         <!-- links_to_same_article input -->
         <%= form.label :links_to_same_article %>
         <%= form.check_box :links_to_same_article %>

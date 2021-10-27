@@ -1,0 +1,9 @@
+<!-- from https://github.com/stevepolitodesign/rails-nested-form-example/blob/master/app/views/shared/_validation-messages.html.erb -->
+<% if object.errors.any? %>
+    <p class="alert alert-danger"><%= pluralize(object.errors.count, 'error') %> prohibited this form from saving.</p>
+    <ul>
+        <% object.errors.full_messages.each do |message| %>
+            <li class="alert alert-warning"><%= message %></li>
+        <% end %>
+    <ul>
+<% end %>
