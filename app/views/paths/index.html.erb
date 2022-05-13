@@ -1,5 +1,5 @@
 <h1>All paths</h1>
-<%= link_to "New Path", new_path_path %>
+<%= link_to "New Path", new_path_path, class: "btn btn-success" %>
 <div class="d-md-flex mb-3">
     <table>
         <thead>
@@ -17,12 +17,13 @@
             <% @paths.each do |path| %>
                 <tr>
                     <td>
-                        <%= button_to "Edit", edit_path_path(path), method: :get %>
+                        <%= link_to "Edit", edit_path_path(path), method: :get,
+                            class: 'btn btn-secondary' %>
                     </td>
                     <td>
                         <%= button_to "Delete", path_path(path), method: :delete,
                             class: 'btn btn-danger',
-                            data: { confirm: "Are you sure?" } %>
+                            data: { confirm: "Are you sure you want to delete? Cannot be undone." } %>
                     </td>
                     <td>
                         <%= link_to path.id, path %>

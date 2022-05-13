@@ -1,10 +1,12 @@
-<%= link_to "Home", root_path %>
 <h1><%= @path.origin %> -> <%= @path.destination %></h1>
 <div>
-    <%= button_to "Edit", edit_path_path(@path), method: :get,
-        form: {style: 'display:inline-block;'} %>
+    <%= link_to "Home", root_path, form: {style: 'display:inline-block;'},
+        class: 'btn btn-primary' %>
+    <%= link_to "Edit", edit_path_path(@path), method: :get,
+        form: {style: 'display:inline-block;'},
+        class: 'btn btn-secondary' %>
     <%= button_to "Delete", path_path(@path), method: :delete, data: {
-        confirm: "Are you sure?"}, class: 'btn btn-danger',
+        confirm: "Are you sure you want to delete? Cannot be undone."}, class: 'btn btn-danger',
         form: {style: 'display:inline-block;'} %>
 </div>
 <% if @path.links_to_same_article %>
