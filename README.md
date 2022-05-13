@@ -7,7 +7,8 @@ This is a simple CRUD app displaying the results of a particular ["Wiki race"](h
 
 # Set-up
 1. Installation of Ruby on Rails itself is beyond the scope of this Readme.
-1. Run `bundle install` to install all the Gems listed in [the Gemfile](Gemfile)
+1. Run `bundle install` from the top-level directory to install all the Gems listed in [the Gemfile](Gemfile)
+1. `cd` to the [bins directory](bins/)
 1. Run `db:migrate:reset` to reset the database (and tables) and (re-)create them.
 1. Run `rails server`.
 1. Navigate to [Localhost](http://localhost:3000/) in your browser.
