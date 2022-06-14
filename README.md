@@ -12,3 +12,6 @@ This is a simple CRUD app displaying the results of a particular ["Wiki race"](h
 1. Run `db:migrate:reset` to reset the database (and tables) and (re-)create them.
 1. Run `rails server`.
 1. Navigate to [Localhost](http://localhost:3000/) in your browser.
+
+# Sample home page with populated data
+![Sample home page view with populated data](home.png "Home page; intermediate article titles are only viewable when navigating to each entry.")
